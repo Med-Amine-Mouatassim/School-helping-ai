@@ -1,6 +1,6 @@
 # 🤖 Chatbot Éducatif Intelligent – Hackathon GOMYCODE / NVIDIA
 
-## 📖 Présentation du projet
+## 📖 Présentation du projet : https://school-helping-ai.web.app/
 
 Ce projet a été développé dans le cadre d'un hackathon d'innovation technologique associé à **GOMYCODE / NVIDIA**, centré sur l'intelligence artificielle et ses applications dans le domaine de l'éducation.
 
