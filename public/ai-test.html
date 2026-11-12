@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page de test temporaire du modèle local de School Helping AI">
+  <title>Test IA locale — School Helping AI</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="importmap">{"imports":{"@huggingface/transformers":"https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.3.0"}}</script>
+  <style>
+    :root{color-scheme:dark;--bg:#090b0f;--panel:#11161d;--text:#edf1f5;--muted:#96a1b0;--line:#27303b;--lime:#c9fb59;font-family:Inter,sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);display:grid;place-items:center;padding:24px}.test-card{width:min(760px,100%);padding:clamp(22px,5vw,42px);border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#151c24,#10151b);box-shadow:0 28px 70px #0007}.eyebrow{color:var(--lime);font:11px 'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase}h1{margin:14px 0 8px;font-size:clamp(27px,5vw,42px);letter-spacing:-1.8px}.intro{color:var(--muted);line-height:1.6}.status-row{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}.badge{padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:#0d1218;color:#cbd2dc;font:12px 'DM Mono',monospace}.badge strong{color:var(--lime)}label{display:block;margin:20px 0 8px;color:#cbd2dc;font-size:13px}textarea{width:100%;min-height:130px;padding:13px;border:1px solid #35404d;border-radius:8px;background:#0d1218;color:var(--text);font:14px/1.6 Inter,sans-serif;resize:vertical}button{margin:16px 8px 0 0;padding:11px 15px;border:0;border-radius:7px;background:var(--lime);color:#16200b;font-weight:700;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.output{min-height:110px;margin-top:18px;padding:15px;border:1px solid var(--line);border-radius:8px;background:#0d1218;white-space:pre-wrap;line-height:1.65}.note{margin:16px 0 0;color:#7f8b9a;font-size:12px;line-height:1.55}a{color:var(--lime)}
+  </style>
+</head>
+<body>
+  <main class="test-card">
+    <div class="eyebrow">School Helping AI · diagnostic local</div>
+    <h1>Tester le modèle dans ce navigateur</h1>
+    <p class="intro">Le premier chargement télécharge le modèle. Les demandes suivantes réutilisent le pipeline gardé en mémoire par la page.</p>
+    <div class="status-row" aria-live="polite">
+      <div class="badge">État : <strong id="modelStatus">idle</strong></div>
+      <div class="badge">Runtime : <strong id="deviceStatus">—</strong></div>
+      <div class="badge">Chargement : <strong id="loadTime">—</strong></div>
+      <div class="badge">Génération : <strong id="generationTime">—</strong></div>
+    </div>
+    <label for="devicePreference">Mode de calcul pour ce chargement</label>
+    <select id="devicePreference" style="width:100%;padding:10px;border:1px solid #35404d;border-radius:7px;background:#0d1218;color:var(--text)">
+      <option value="auto">Automatique (WebGPU puis WASM)</option>
+      <option value="webgpu">WebGPU (fallback WASM si nécessaire)</option>
+      <option value="wasm">WASM / CPU (test du fallback)</option>
+    </select>
+    <label for="prompt">Prompt</label>
+    <textarea id="prompt">Tu es School Helping AI. Explique simplement ce qu'est un pointeur en langage C. Donne un petit exemple. Réponds en français avec des titres courts.</textarea>
+    <div>
+      <button id="loadModel" type="button">Charger le modèle</button>
+      <button id="generate" type="button">Générer une réponse</button>
+    </div>
+    <div class="output" id="response" aria-live="polite">La réponse du modèle apparaîtra ici.</div>
+    <p class="note">Modèle : <code>onnx-community/Qwen2.5-0.5B-Instruct</code>. Le mode choisi s’applique au premier chargement de la page. WASM permet de tester explicitement le fallback. Le téléchargement et la génération dépendent des capacités et de la mémoire de l’appareil.</p>
+    <p class="note"><a href="index.html">Retour à School Helping AI</a></p>
+  </main>
+  <script type="module" src="js/ai-test.js"></script>
+</body>
+</html>
